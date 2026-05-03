@@ -25,20 +25,37 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
-    metadataBase: new URL("https://jwglobal.co.kr"),
+    metadataBase: new URL("https://jw-global.co.kr"),
     title: t("title"),
     description: t("description"),
+    alternates: {
+      canonical: locale === "ko" ? "/ko" : "/",
+      languages: {
+        en: "/",
+        ko: "/ko",
+      },
+    },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "website",
       locale: locale === "ko" ? "ko_KR" : "en_US",
       siteName: "JW GLOBAL (KOREA) CO., LTD",
+      url: locale === "ko" ? "/ko" : "/",
+      images: [
+        {
+          url: "/brand/logo.jpg",
+          width: 1200,
+          height: 630,
+          alt: "JW GLOBAL (KOREA) CO., LTD",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
+      images: ["/brand/logo.jpg"],
     },
   };
 }
