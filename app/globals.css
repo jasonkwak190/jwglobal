@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Ocean Trust palette */
+  --color-navy-950: #06172e;
+  --color-navy-900: #0b2340;
+  --color-navy-800: #122e54;
+  --color-steel-700: #1c5d99;
+  --color-steel-500: #3a82c9;
+  --color-signal-500: #f5a623;
+  --color-signal-400: #ffbe55;
+  --color-mist-50: #f7f9fc;
+  --color-mist-100: #eef2f8;
+  --color-ink-900: #1a1f2e;
+  --color-ink-700: #3a4154;
+  --color-muted-500: #6b7588;
+  --color-muted-300: #b4bcca;
+  --color-line: #e3e8f0;
+
+  --color-background: #ffffff;
+  --color-foreground: var(--color-ink-900);
+
+  --font-sans: var(--font-inter), var(--font-pretendard), system-ui,
+    -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-inter), var(--font-pretendard), system-ui,
+    sans-serif;
+
+  --radius-card: 1rem;
+  --shadow-card: 0 1px 2px rgba(11, 35, 64, 0.04),
+    0 8px 24px -8px rgba(11, 35, 64, 0.12);
+  --shadow-card-hover: 0 4px 8px rgba(11, 35, 64, 0.08),
+    0 24px 40px -12px rgba(11, 35, 64, 0.18);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reusable wrapper */
+.container-jw {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-jw {
+    padding-inline: 2rem;
+  }
+}
+
+/* Subtle grid backdrop accent (used on dark hero) */
+.grid-backdrop {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Reduced motion respect — Framer Motion already honors this, but
+   keep CSS animations safe too. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "title": "JW GLOBAL (KOREA) CO., LTD — Reliable Logistics Partner from Busan",
+    "description": "JW GLOBAL connects Korea's ports to global trade. International forwarding, customs clearance, inland transport, and specialized cargo since 2019."
+  },
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "whyUs": "Why Us",
+    "contact": "Contact",
+    "languageLabel": "Language",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "JW GLOBAL (KOREA) CO., LTD",
+    "title": "Your Reliable Logistics Partner.",
+    "subtitle": "Since 2019, JW GLOBAL has connected Korea's ports to global trade — forwarding, customs, and specialized cargo, handled end-to-end.",
+    "ctaPrimary": "About Us",
+    "ctaSecondary": "Contact",
+    "scrollHint": "Scroll"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Built on Trust. Driven by Service.",
+    "body": "Founded in December 2019, JW GLOBAL (KOREA) CO., LTD has grown by building strong fundamentals and pursuing higher service quality for our clients. We will continue to evolve as your most reliable logistics partner, delivering greater value with every shipment.",
+    "stats": {
+      "founded": { "label": "Founded", "value": "2019" },
+      "headquarters": { "label": "Headquarters", "value": "Busan, Korea" },
+      "scope": { "label": "Scope", "value": "Worldwide" }
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "End-to-End Logistics, One Partner.",
+    "subtitle": "From booking to last-mile delivery, every step is handled in-house.",
+    "items": {
+      "forwarding": {
+        "title": "International Forwarding",
+        "desc": "Sea and air freight import & export across Asia, Europe, and the Americas."
+      },
+      "customs": {
+        "title": "Customs Clearance",
+        "desc": "Licensed clearance and tariff consulting for smooth border crossings."
+      },
+      "inland": {
+        "title": "Inland Transport",
+        "desc": "Container and bulk trucking nationwide, coordinated with port schedules."
+      },
+      "special": {
+        "title": "Special Cargo",
+        "desc": "Heavy-lift, oversize, hazardous, and special-container shipments."
+      }
+    }
+  },
+  "why": {
+    "eyebrow": "Why Choose Us",
+    "title": "Designed Around the Cargo You Trust Us With.",
+    "items": {
+      "trust": {
+        "title": "Built on Trust",
+        "desc": "Years of consistent execution earn us the long-term partnerships our clients rely on."
+      },
+      "expertise": {
+        "title": "Deep Expertise",
+        "desc": "A dedicated special-cargo team handles what general forwarders can't — heavy, oversize, and hazardous loads."
+      },
+      "network": {
+        "title": "Korea-Wide Network",
+        "desc": "Direct lines into Busan port operations and a nationwide trucking network for seamless inland delivery."
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's Move Your Cargo.",
+    "subtitle": "Tell us about your shipment and we'll get back within one business day.",
+    "addressLabel": "Address",
+    "address": "1303 Oreum Tower, 172 Jungang-daero, Dong-gu, Busan, Republic of Korea",
+    "emailLabel": "Email",
+    "email": "con@jw-global.co.kr",
+    "ctaEmail": "Send us an email"
+  },
+  "footer": {
+    "tagline": "Your Reliable Logistics Partner.",
+    "rights": "All rights reserved.",
+    "companyName": "JW GLOBAL (KOREA) CO., LTD"
+  }
+}

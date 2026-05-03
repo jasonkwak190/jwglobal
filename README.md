@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JW GLOBAL (KOREA) CO., LTD — Corporate Site
 
-## Getting Started
+Bilingual (EN default · KO) one-pager for **JW GLOBAL (KOREA) CO., LTD** (제이더블유글로벌 주식회사), built with Next.js 16 App Router + next-intl + Tailwind CSS v4 + Framer Motion.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, RSC)
+- TypeScript
+- Tailwind CSS v4 (`@theme inline` design tokens)
+- next-intl 4 (EN default, `/ko` for Korean)
+- Framer Motion (scroll fade-ins, hero reveal)
+- Lucide React (icons)
+- Inter (Latin) + Pretendard (Korean) via CDN
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# → http://localhost:3000  (EN)
+# → http://localhost:3000/ko  (KO)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build & start production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project layout
 
-## Learn More
+```
+app/
+  [locale]/
+    layout.tsx        ← root html/body, fonts, metadata, NextIntlClientProvider
+    page.tsx          ← single page composing all sections
+  globals.css         ← Tailwind v4 + Ocean Trust design tokens
+  sitemap.ts
+  robots.ts
+components/
+  Header.tsx          ← sticky, transparent → solid on scroll
+  Hero.tsx            ← full-screen with stock container ship photo
+  About.tsx
+  Services.tsx        ← 4 service cards
+  WhyUs.tsx           ← 3 column value props
+  Contact.tsx         ← address + email + Google Maps embed
+  Footer.tsx
+  Logo.tsx            ← wordmark fallback (replace when real logo arrives)
+  LanguageToggle.tsx  ← EN | KO switch in header
+  Section.tsx         ← shared eyebrow/title/subtitle wrapper with fade-in
+i18n/
+  routing.ts          ← locales + default + URL strategy
+  navigation.ts       ← typed Link/useRouter/usePathname
+  request.ts          ← per-request locale + messages
+messages/
+  en.json
+  ko.json
+middleware.ts         ← next-intl locale negotiation
+```
 
-To learn more about Next.js, take a look at the following resources:
+## How to update content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Copy text:** edit `messages/en.json` and `messages/ko.json`. Keys are the source of truth — both files must stay in sync.
+2. **Address / email:** also lives in `messages/*.json` (`contact.address`, `contact.email`, `footer.companyName`).
+3. **Hero image:** in `components/Hero.tsx`, swap the Unsplash URL for a self-hosted asset under `public/hero/` and update `next.config.ts` `remotePatterns` accordingly.
+4. **Logo:** drop the file at `public/brand/logo.svg` (and `logo-light.svg` for the dark hero/footer), then replace the wordmark in `components/Logo.tsx` with `<Image src="/brand/logo.svg" ... />`.
+5. **Map location:** the Google Maps embed in `components/Contact.tsx` is keyed by address text — update if the office moves.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design tokens — "Ocean Trust"
 
-## Deploy on Vercel
+| Token | HEX | Use |
+|---|---|---|
+| `--color-navy-950` | `#06172e` | Hero/footer background |
+| `--color-navy-900` | `#0b2340` | Headings, primary surfaces |
+| `--color-steel-700` | `#1c5d99` | Eyebrows, links |
+| `--color-signal-500` | `#f5a623` | CTA, accent |
+| `--color-mist-50` | `#f7f9fc` | Alternating section bg |
+| `--color-ink-900` | `#1a1f2e` | Body text |
+| `--color-muted-500` | `#6b7588` | Captions |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The repo is Vercel-ready. Push to GitHub and import — no env vars required for v1. Custom domain (`jwglobal.co.kr`) can be added in Vercel project settings; remember to update `metadataBase` in `app/[locale]/layout.tsx` if the canonical domain changes.
+
+## Roadmap (out of v1 scope)
+
+- Replace Unsplash hero with first-party port/container photography
+- Real logo + favicon (drop into `app/favicon.ico` and `public/brand/`)
+- Org chart + history pages (currently omitted per client request)
+- Quote request form (mailto link is the v1 substitute)
+- Korean business registration footer block (대표자/사업자등록번호 등) once provided
